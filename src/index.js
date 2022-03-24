@@ -2,7 +2,6 @@ require("dotenv").config();
 require("./db/mongoose");
 const express = require("express");
 const app = express();
-const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const hbs = require("hbs");
 const userRouter = require("./routes/users");
