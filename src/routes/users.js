@@ -34,12 +34,12 @@ router.post("/login", async (req, res) => {
     return res
       .cookie("token", token, {
         httpOnly: true,
-        expire: new Date() + dayTime,
+        expire: new Date() + monthTime,
       })
       .status(200)
       .redirect("/");
   } catch (error) {
-    res.send(error);
+    res.status(500).send(error);
   }
 });
 
