@@ -14,7 +14,7 @@ const infoSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    admin: {
+    owner: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: "User",

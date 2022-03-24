@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Token = require("./tokens");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const Info = require("./info");
 
 const userSchema = mongoose.Schema(
   {
@@ -84,7 +85,14 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
+userSchema.pre("remove", async function (next) {
+  const user = this;
+
+  await Info.deleteMany({ owner: user.id });
+
+  next();
+});
+
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
-
