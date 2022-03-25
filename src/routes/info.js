@@ -68,4 +68,38 @@ router.get("/view/:id", async (req, res) => {
   }
 });
 
+router.post("/search", async (req, res) => {
+  const searchQuery = req.body.search.split(" ");
+  let regex = `(${searchQuery[0]})`;
+
+  for (let i = 1, len = searchQuery.length; i < len; i++) {
+    regex = regex.concat(`|(${searchQuery[i]})`);
+  }
+
+  try {
+    const colleges = await Info.find({
+      $or: [
+        {
+          university: { $regex: regex, $options: "i" },
+        },
+        {
+          college: { $regex: regex, $options: "i" },
+        },
+        {
+          desc: { $regex: regex, $options: "i" },
+        },
+      ],
+    })
+      .limit(req.body.limit)
+      .skip(req.body.skip);
+
+    for (let i = 0, len = colleges.length; i < len; i++) {
+      colleges[i] = colleges[i].getLessInfo();
+    }
+    res.send(colleges);
+  } catch (e) {
+    res.send(e);
+  }
+});
+
 module.exports = router;
