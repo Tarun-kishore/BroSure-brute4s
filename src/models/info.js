@@ -50,5 +50,31 @@ const infoSchema = mongoose.Schema(
   }
 );
 
+infoSchema.methods.getLessInfo = function () {
+  const infoInstance = this.toObject();
+
+  const numberOfCourses = infoInstance.courses.length;
+
+  let maxPackage = 0;
+  let totalPackage = 0;
+  let totalSeats = 0;
+
+  infoInstance.courses.forEach((course) => {
+    if (course.maxPackage > maxPackage) maxPackage = course.maxPackage;
+    totalPackage += course.numberOfSeats * course.averagePackage;
+    totalSeats += course.numberOfSeats;
+  });
+
+  const averagePackage = totalPackage / totalSeats;
+
+  delete infoInstance.courses;
+  infoInstance.numberOfCourses = numberOfCourses;
+  infoInstance.maxPackage = maxPackage;
+  infoInstance.averagePackage = averagePackage;
+  infoInstance.totalSeats = totalSeats;
+
+  return infoInstance;
+};
+
 const Info = mongoose.model("Info", infoSchema);
 module.exports = Info;

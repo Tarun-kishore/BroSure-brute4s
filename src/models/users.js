@@ -33,12 +33,6 @@ const userSchema = mongoose.Schema(
   }
 );
 
-userSchema.virtual("info", {
-  ref: "Info",
-  localField: "_id",
-  foreignField: "owner",
-});
-
 userSchema.statics.getUserByCredentials = async function (email, password) {
   const user = await User.findOne({ email });
 
