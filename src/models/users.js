@@ -58,7 +58,7 @@ userSchema.methods.getPublicProfile = function () {
 userSchema.methods.generateAuthToken = async function () {
   const user = this;
   const token = await jwt.sign({ _id: user._id }, process.env.SECRET, {
-    expiresIn: "24h",
+    expiresIn: "30d",
   });
 
   const tokenData = new Token({ user: user._id, token });
