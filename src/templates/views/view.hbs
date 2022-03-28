@@ -1,5 +1,35 @@
 {{>header}}
-    <div>
+
+    <link rel="stylesheet" href="/css/4. College Profile/style.css">
+
+        <section id="profile-section">
+        <div class="profile-container">
+            <div class="college-image-container">
+                <figure class="image is-4by3">
+                    <img
+                      src='{{collegeInfo.collegeImage}}'
+                      class="img-fluid"
+                      alt=""
+                    />
+                  </figure>
+            </div>
+            <div class="college-name-container">
+                <div class="college-name">{{collegeInfo.college}}</div>
+                <div class="college-location">{{collegeInfo.university}}</div>
+            </div>
+            <div class="college-desc-container">
+                <h3>About</h3>
+                <div class="college-desc">
+                    {{collegeInfo.desc}}
+                </div>
+            </div>
+            <div class="new-info">
+                Course related details will be added soon
+            </div>
+        </div>
+    </section>
+
+    {{!-- <div>
     <div>
     University :
     {{collegeInfo.university}}
@@ -42,6 +72,6 @@
 
 {{/each}}
 
-</div>
+</div> --}}
 
 {{>footer}}
