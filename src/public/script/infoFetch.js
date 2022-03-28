@@ -1,7 +1,7 @@
 const $container = document.getElementById("card-container");
 const $loadingButton = document.getElementById("loadMore");
 
-const limit = 1;
+const limit = 5;
 let skip = 0;
 
 const load = () => {
