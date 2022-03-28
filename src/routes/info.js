@@ -28,8 +28,7 @@ router.put("/update", auth, async (req, res) => {
 
       if (req.body.collegeImage) {
         const img = JSON.parse(req.body.collegeImage);
-        const buffer = new Buffer.from(img.data, "base64");
-        info.collegeImage = buffer;
+        info.collegeImage = `data:image/png;base64,${img.data}`;
       }
     }
 
@@ -52,6 +51,8 @@ router.post("/all", async (req, res) => {
     for (let i = 0, len = info.length; i < len; i++) {
       info[i] = info[i].getLessInfo();
     }
+
+    //console.log(info[0]);
 
     res.send(info);
   } catch (e) {
