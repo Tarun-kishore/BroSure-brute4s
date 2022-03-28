@@ -1,0 +1,47 @@
+{{>header}}
+    <div>
+    <div>
+    University :
+    {{collegeInfo.university}}
+    </div>
+    <div>
+    college :
+    {{collegeInfo.college}}
+    </div>
+    <div>
+    About college :
+    {{collegeInfo.desc}}
+    </div>
+{{#each collegeInfo.courses}}
+
+{{#with this}}
+<div>
+    <div>
+    course name :
+    {{courseName}}
+    </div>
+    <div>
+    number of seat:
+    {{numberOfSeats}}
+    </div>
+    <div>
+    maxPackage:
+    {{maxPackage}}
+    </div>
+    <div>
+    averagePackage :
+    {{averagePackage}}
+    </div>
+    <div>
+    placementPercent:
+    {{placementPercent}}
+    </div>
+    </div>
+
+{{/with}}
+
+{{/each}}
+
+</div>
+
+{{>footer}}

@@ -1,3 +1,31 @@
 {{>header}}
 
-Index page
+<link rel="stylesheet" href="/css/1. HomePage/styles.css">
+
+    <section id="main-body">
+      <div class="main-container">
+        <div class="main-heading">
+          <h1>Find the Right Colleges for You</h1>
+        </div>
+        <div id="card-container" class="cards-container row">
+        </div>
+      </div>
+    </section>
+
+
+<div id="loadMore">
+    <span class="load-more"></span>
+</div>
+
+<script src = "/script/infoFetch.js">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/script/1. Homepage/script.js"></script>
+<script>
+    function reDirect(link) {
+        window.location.href = link;
+    }
+</script>
+
+
+{{>footer}}

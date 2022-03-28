@@ -1,0 +1,59 @@
+{{> header}}
+
+
+{{#if collegeInfo}}
+    <form action="/info/update?_method=put" method="post" id="collegeInfoForm">
+    <div>
+    <div>
+    University :
+    <input type="text" name="university" value="{{collegeInfo.university}}">
+    </div>
+    <div>
+    college :
+    <input type="text" name="college" value="{{collegeInfo.college}}">
+    </div>
+    <div>
+    About college :
+    <input type="text" name="desc" value="{{collegeInfo.desc}}">
+    </div>
+{{#each collegeInfo.courses}}
+
+{{#with this}}
+<div>
+    <div>
+    course name :
+    <input type="text" class="courseName" value="{{courseName}}">
+    </div>
+    <div>
+    number of seat:
+    <input type="number" class="numberOfSeats" value="{{numberOfSeats}}">
+    </div>
+    <div>
+    maxPackage:
+    <input type="text" class="maxPackage" value="{{maxPackage}}">
+    </div>
+    <div>
+    averagePackage :
+    <input type="text" class="averagePackage" value="{{averagePackage}}">
+    </div>
+    <div>
+    placementPercent:
+    <input type="text" class="placementPercent" value="{{placementPercent}}">
+    </div>
+    </div>
+
+{{/with}}
+
+{{/each}}
+
+</div>
+    <button> Submit</button>
+    </form>
+{{else}}
+    <h1> No data </h1>
+{{/if}}
+
+<script src="/script/arrayGenerator.js">
+</script>
+
+{{> footer}}

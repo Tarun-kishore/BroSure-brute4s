@@ -8,6 +8,13 @@ router.get("/about", (req, res) => {
   res.render("about", options);
 });
 
+router.get("/search", (req, res) => {
+  const options = {};
+
+  if (req.cookies.token) options.loggedIn = true;
+  res.render("search", options);
+});
+
 router.get("/success", (req, res) => {
   const options = {};
 
@@ -39,4 +46,3 @@ router.get("/", (req, res) => {
 });
 
 module.exports = router;
-
