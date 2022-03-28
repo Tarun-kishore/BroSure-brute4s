@@ -24,6 +24,8 @@ First you need to setup an environment for the server to run (You have to do it 
   SECRET =`Any string to be used as secret string in authentication`
   DATABASE_URL = `mongodb database url`
   
+  Every time you pull contents form repository make sure you run `npm install` to install all required modules.
+  
  Then every time you run the server, run mongodb shell beforehand.
  Then run `npm run devstart`
  
