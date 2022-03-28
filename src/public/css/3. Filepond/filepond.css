@@ -1,0 +1,6 @@
+
+.filepond--root,
+.filepond--root .filepond--drop-label {
+  height: 15vw;
+  width: 30vw;
+}
