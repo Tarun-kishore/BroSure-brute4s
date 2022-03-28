@@ -39,6 +39,7 @@ router.post("/login", async (req, res) => {
       .status(200)
       .redirect("/");
   } catch (error) {
+    console.log(error)
     res.status(500).send(error);
   }
 });
