@@ -7,7 +7,10 @@ router.get("/", auth, async (req, res) => {
   try {
     const collegeInfo = await Info.findOne({ owner: req.user.id });
 
-    res.render("collegeInfo", { loggedIn: true, collegeInfo });
+    res.render("collegeInfo", {
+      loggedIn: true,
+      collegeInfo: collegeInfo || {},
+    });
   } catch (e) {
     console.log(e);
     res.send(e);
