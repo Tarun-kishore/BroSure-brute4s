@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const imageData = require("../utils/imageData");
 
 const infoSchema = mongoose.Schema(
   {
@@ -19,6 +20,10 @@ const infoSchema = mongoose.Schema(
       required: true,
       ref: "User",
       unique: true,
+    },
+    collegeImage: {
+      type: Buffer,
+      default: imageData,
     },
     courses: [
       {
@@ -49,6 +54,16 @@ const infoSchema = mongoose.Schema(
     timestamps: true,
   }
 );
+
+infoSchema.methods.toJSON = function () {
+  if (typeof this.collegeImage != "string") {
+    this.collegeImage = `data:png;base64,${this.collegeImage.toString(
+      "base64"
+    )}`;
+  }
+
+  return this;
+};
 
 infoSchema.methods.getLessInfo = function () {
   const infoInstance = this.toObject();
