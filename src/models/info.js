@@ -20,6 +20,9 @@ const infoSchema = mongoose.Schema(
       ref: "User",
       unique: true,
     },
+    collegeImage: {
+      type: Buffer,
+    },
     courses: [
       {
         courseName: {
@@ -49,6 +52,16 @@ const infoSchema = mongoose.Schema(
     timestamps: true,
   }
 );
+
+infoSchema.methods.toJSON = function () {
+  if (typeof this.collegeImage != "string") {
+    this.collegeImage = `data:png;base64,${this.collegeImage.toString(
+      "base64"
+    )}`;
+  }
+
+  return this;
+};
 
 infoSchema.methods.getLessInfo = function () {
   const infoInstance = this.toObject();
