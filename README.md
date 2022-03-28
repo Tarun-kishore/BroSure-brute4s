@@ -5,7 +5,7 @@ Prototype for Smart India Hackathon
 `Integrated University Portal` is a web portal being desinged to get information about different universities and their courses.
 
 # What do I need to run the code on my local machine?
-- The backend server is based on `NodeJS`. So you need NodeJS on your local machine (An LTE version is preferred).
+- The backend server is based on `NodeJS`. So you need NodeJS on your local machine (An LTS version is preferred).
 - You need `npm package manager`.
 - You need `mongoDB` for database.
 - At last you need an IDE of your choice.
@@ -22,11 +22,11 @@ First you need to setup an environment for the server to run (You have to do it 
 - Create a file named `.env` into the cloned folder.
 - Into the file place content :
   SECRET =`Any string to be used as secret string in authentication`
-  DATABASE_URL = `mongodb database url`
+  DATABASE_URL = `mongodb database url in form of mongodb://localhost:27017/dbname`
   
   Every time you pull contents form repository make sure you run `npm install` to install all required modules.
   
- Then every time you run the server, run mongodb shell beforehand.
+ Then every time you run the server, run mongodb shell beforehand using command `mongod`.
  Then run `npm run devstart`
  
  # How can i contribute to repository?
@@ -37,5 +37,5 @@ First you need to setup an environment for the server to run (You have to do it 
  - The pull need at least one approval from someone (other than creator of pull request) to be merged.
  Note: The approving of pull request can be done by any of the contributors, Not neccessarily the creator of repository.
  
- The main branch will be protected.
+ The main branch is be protected from direct push.
  
