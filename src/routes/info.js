@@ -19,16 +19,17 @@ router.get("/", auth, async (req, res) => {
 
 router.put("/update", auth, async (req, res) => {
   try {
+    if (req.body.collegeImage == "") delete req.body.collegeImage;
     let info = await Info.findOne({ owner: req.user.id });
     if (!info) info = new Info({ ...req.body, owner: req.user.id });
     else {
       for (let data in req.body) {
+        if (data == "collegeImage") continue;
         info[data] = req.body[data];
       }
 
       if (req.body.collegeImage) {
         const img = JSON.parse(req.body.collegeImage);
-        //console.log(img);
         info.collegeImage = `data:${img.type};base64,${img.data}`;
       }
     }
