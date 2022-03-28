@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const imageData = require("../utils/imageData");
 
 const infoSchema = mongoose.Schema(
   {
@@ -22,6 +23,7 @@ const infoSchema = mongoose.Schema(
     },
     collegeImage: {
       type: Buffer,
+      default: imageData,
     },
     courses: [
       {
