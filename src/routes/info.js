@@ -28,7 +28,8 @@ router.put("/update", auth, async (req, res) => {
 
       if (req.body.collegeImage) {
         const img = JSON.parse(req.body.collegeImage);
-        info.collegeImage = `data:image/png;base64,${img.data}`;
+        //console.log(img);
+        info.collegeImage = `data:${img.type};base64,${img.data}`;
       }
     }
 
