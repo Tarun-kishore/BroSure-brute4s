@@ -25,6 +25,12 @@ router.put("/update", auth, async (req, res) => {
       for (let data in req.body) {
         info[data] = req.body[data];
       }
+
+      if (info.body.collegeImage) {
+        const img = JSON.parse(req.body.profilePicture);
+        const buffer = new Buffer.from(img.data, "base64");
+        info.collegeImage = buffer;
+      }
     }
 
     await info.save();
