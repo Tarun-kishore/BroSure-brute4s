@@ -27,7 +27,7 @@ router.put("/update", auth, async (req, res) => {
       }
 
       if (req.body.collegeImage) {
-        const img = JSON.parse(req.body.profilePicture);
+        const img = JSON.parse(req.body.collegeImage);
         const buffer = new Buffer.from(img.data, "base64");
         info.collegeImage = buffer;
       }
