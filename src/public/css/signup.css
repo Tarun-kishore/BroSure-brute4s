@@ -1,0 +1,50 @@
+body{font-family:'IBM Plex Sans Arabic';
+     color:black;
+     background-color: #fdf0e0;
+    }
+.card{display:flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      border-radius: 15px;
+      background: linear-gradient(to right bottom,rgba(255,255,255,0.6),rgba(255,255,255,0.3));
+      backdrop-filter:blur(2rem);
+      box-shadow: 5px 0px 5px  5px rgba(0,0,0,0.3);
+      box-shadow: 0px 5px 10px 10px rgba(0,0,0,0.1);
+      height:70%;
+      width:50%;
+      z-index: 10;
+      position: absolute;
+      bottom:0.05%;
+      left:25%;
+    }
+form{display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    width:50%;}
+input{
+  width:100%;
+  border-radius:15px;
+       padding:0.5rem;
+
+      border-style: solid;
+      border-width: thin;
+      background:none;
+
+}
+
+.submit{background-color: black;
+color:white;
+transition: background-color 0.5s , color 0.7s ease;
+border-radius: 15px;
+width:100%;
+padding: 0.5rem;
+border:none;}
+
+.submit:hover{
+  color:black;
+  background-color: white;
+  box-shadow: 2px 0px 5px  3px rgba(0,0,0,0.1);
+  cursor:pointer;
+}

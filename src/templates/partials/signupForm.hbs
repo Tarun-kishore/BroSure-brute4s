@@ -1,37 +1,31 @@
-<div class="container mt-5" id="signupForm">
-    <form action="/user/signup" method="POST" id="signup" class="row g-4">
-        <div class="col-md-9">
-            <label for="firstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="firstName" name="firstName" required />
-            <label for="lastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="lastName" name="lastName" required />
-        </div>
-    <div class="row">
-        <div class="col-md-9">
-           <label for="email" class="form-label">Email Address</label>
-            <input type="email" class="form-control" id="email" name="email" required />
-        </div>
+<link rel="stylesheet" href="/css/signup.css">
+<img src="/image/people.jpg" width="80%" style="position:relative;left:10%;right:50%;">
+    <div class="card">
+      <h1 style="color:black;">Just a few steps away ! </h1>
+      <form class="signupForm" action="user/signup" id="signup"  method="post">
+        First Name
+        <input type="text" id="firstName" name="firstName">
+        <br>
+        Last Name
+        <input type="text" id="lastName" name="lastName">
+        <br>
+        Email
+        <input type="email" id="email" name="email">
+        <br>
         <div id="emailAlert"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-9">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password" required />
-        </div>
+        <br>
+        password
+        <input type="password" id="password" name="password">
+        <br>
         <div id="passAlert"></div>
+        <br>
+        confirm password
+        <input type="password" id="confirmPassword" name="confirmPassword">
+        <br>
+        <input class="submit" type="submit">
+      </form>
+
     </div>
-    <div class="row">
-        <div class="col-md-9">
-            <label for="confirmPassword" class="form-label">Confirm Password</label>
-            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required />
-        </div>
-    </div>
-    <div class="row">
-        <div class="row-12">
-            <button type="submit" class="btn btn-primary">Sign Up</button>
-        </div>
-    </div>
-    </form>
-</div>
+
 
 <script src="/script/signupForm.js"></script>
