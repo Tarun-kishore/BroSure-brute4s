@@ -82,6 +82,7 @@ router.get("/profile", auth, (req, res) => {
     const data = { loggedIn: true, ...req.user.getPublicProfile() };
     res.render("profile", data);
   } catch (error) {
+    console.log(error)
     res.status(400).send();
   }
 });

@@ -35,7 +35,7 @@ const getResults = (search) => {
       <div class="card-right">
         <figure class="image is-4by3">
           <img
-            src="https://unpkg.collegeplanning-nonprod.collegeboard.org/@acorn/college-search-filters-mfe@%5E1.0.0/system/363c5b8febf30f3e84df57ed3751bc1d.svg"
+            src="${college.collegeImage}"
             class="img-fluid"
             alt=""
           />
