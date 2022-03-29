@@ -1,8 +1,4 @@
 @media screen and (min-width: 960px) {
-    #loginForm form,#signupForm form{
-        margin-left: 20vw;
-        margin-right: 20vw;
-    }
 
     #profile{
         width: 50vw;
