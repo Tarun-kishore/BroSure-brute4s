@@ -27,15 +27,17 @@ router.put("/update", auth, async (req, res) => {
         if (data == "collegeImage") continue;
         info[data] = req.body[data];
       }
-
-      if (req.body.collegeImage) {
-        const img = JSON.parse(req.body.collegeImage);
-        info.collegeImage = `data:${img.type};base64,${img.data}`;
-      }
     }
 
+<<<<<<< HEAD
+    if (req.body.collegeImage != undefined) {
+      const img = JSON.parse(req.body.collegeImage);
+      info.collegeImage = `data:${img.type};base64,${img.data}`;
+    }
+=======
     // console.log(info)
 
+>>>>>>> 10667f999330b8b512442f5d3508a364c529303e
     await info.save();
 
     res.redirect("/info");
