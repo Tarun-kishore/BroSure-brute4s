@@ -34,6 +34,8 @@ router.put("/update", auth, async (req, res) => {
       }
     }
 
+    // console.log(info)
+
     await info.save();
 
     res.redirect("/info");
