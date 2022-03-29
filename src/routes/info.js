@@ -19,20 +19,25 @@ router.get("/", auth, async (req, res) => {
 
 router.put("/update", auth, async (req, res) => {
   try {
+    if (req.body.collegeImage == "") delete req.body.collegeImage;
     let info = await Info.findOne({ owner: req.user.id });
     if (!info) info = new Info({ ...req.body, owner: req.user.id });
     else {
       for (let data in req.body) {
+        if (data == "collegeImage") continue;
         info[data] = req.body[data];
-      }
-
-      if (info.body.collegeImage) {
-        const img = JSON.parse(req.body.profilePicture);
-        const buffer = new Buffer.from(img.data, "base64");
-        info.collegeImage = buffer;
       }
     }
 
+<<<<<<< HEAD
+    if (req.body.collegeImage != undefined) {
+      const img = JSON.parse(req.body.collegeImage);
+      info.collegeImage = `data:${img.type};base64,${img.data}`;
+    }
+=======
+    // console.log(info)
+
+>>>>>>> 10667f999330b8b512442f5d3508a364c529303e
     await info.save();
 
     res.redirect("/info");
@@ -52,6 +57,8 @@ router.post("/all", async (req, res) => {
     for (let i = 0, len = info.length; i < len; i++) {
       info[i] = info[i].getLessInfo();
     }
+
+    //console.log(info[0]);
 
     res.send(info);
   } catch (e) {

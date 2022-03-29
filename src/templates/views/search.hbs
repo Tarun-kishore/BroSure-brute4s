@@ -1,10 +1,20 @@
 {{>header}}
+<link rel="stylesheet" href="/css/1. HomePage/styles.css">
+
 <form id="searchForm">
     <input id="searchInput"/>
     <button id="searchButton"> search </button>
 </form>
-<section  id="container">
-</section>
+    <section id="main-body">
+      <div class="main-container">
+        <div class="main-heading">
+          <h1>Search Result</h1>
+        </div>
+        <div id="card-container" class="cards-container row">
+        </div>
+      </div>
+    </section>
+
 <button id="loadMore">Load More</button>
 <script src="/script/searchResults.js">
 </script>

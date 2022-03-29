@@ -1,7 +1,7 @@
 const $container = document.getElementById("card-container");
 const $loadingButton = document.getElementById("loadMore");
 
-const limit = 1;
+const limit = 5;
 let skip = 0;
 
 const load = () => {
@@ -14,7 +14,6 @@ const load = () => {
   })
     .then((data) => data.json())
     .then((colleges) => {
-      
       skip += limit;
       colleges.forEach((college) => {
         const div = document.createElement("div");
@@ -33,7 +32,7 @@ const load = () => {
       <div class="card-right">
         <figure class="image is-4by3">
           <img
-            src="https://unpkg.collegeplanning-nonprod.collegeboard.org/@acorn/college-search-filters-mfe@%5E1.0.0/system/363c5b8febf30f3e84df57ed3751bc1d.svg"
+            src='${college.collegeImage}'
             class="img-fluid"
             alt=""
           />

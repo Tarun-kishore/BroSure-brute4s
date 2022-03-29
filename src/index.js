@@ -14,7 +14,7 @@ app.set("views", "src/templates/views");
 hbs.registerPartials("src/templates/partials");
 app.use(cookieParser());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(methodOverride("_method"));
 app.use(express.json());
 
